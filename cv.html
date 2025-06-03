@@ -6,7 +6,785 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Vũ Quang Sơn</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="/assets/css/cv.css" rel="stylesheet">
+    <style>
+        /* Modern CV Stylesheet - Complete & Clean */
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 20px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Content Layout */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Introduction Styles */
+        .introduction-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .intro-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .intro-card.primary {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-left: 4px solid #3498db;
+        }
+
+        .intro-card.secondary {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f2f6 100%);
+            border-left: 4px solid #2ecc71;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-icon {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .intro-card.secondary .intro-icon {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .intro-text h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+
+        .intro-text p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f1f2f6 0%, #ffffff 100%);
+            border-radius: 16px;
+            border: 1px solid #e9ecef;
+        }
+
+        .specialty-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .specialty-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+
+        .specialty-item i {
+            color: #3498db;
+            font-size: 1.2em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .specialty-item span {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        /* Education & Experience Common Styles */
+        .education-item,
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 0;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .education-item:hover,
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-header,
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 24px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .institution-info,
+        .company-info {
+            flex: 1;
+        }
+
+        .institution-name,
+        .company-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .institution-name::before,
+        .company-name::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            border-radius: 2px;
+        }
+
+        .education-item.current .institution-name::before {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .education-item.completed .institution-name::before {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .company-name::before {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+        }
+
+        .degree-title,
+        .job-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 0 0 12px 0;
+        }
+
+        .education-item.current .degree-title {
+            color: #e74c3c;
+        }
+
+        .education-item.completed .degree-title {
+            color: #27ae60;
+        }
+
+        .job-title {
+            color: #3498db;
+        }
+
+        .duration-badge,
+        .education-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .duration {
+            font-size: 0.95em;
+            color: #666;
+            font-weight: 500;
+            background: #f8f9fa;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .status {
+            font-size: 0.85em;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status.current {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+        }
+
+        .status.duration-length {
+            background: #ecf0f1;
+            color: #7f8c8d;
+        }
+
+        .status.completed {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+        }
+
+        /* Content Areas */
+        .education-content,
+        .experience-content {
+            padding: 24px;
+        }
+
+        .project-highlight,
+        .research-focus {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+        }
+
+        .research-focus {
+            border-left-color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .project-name,
+        .focus-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0 0 12px 0;
+            position: relative;
+        }
+
+        .project-name::after,
+        .focus-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 1px;
+        }
+
+        .focus-title::after {
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+        }
+
+        .achievement-item,
+        .research-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px 0;
+        }
+
+        .achievement-item i,
+        .research-item i {
+            color: #3498db;
+            font-size: 1.1em;
+            width: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .research-item i {
+            color: #e74c3c;
+        }
+
+        .achievement-item span,
+        .research-details p {
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        .research-details strong {
+            color: #2c3e50;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .tech-stack,
+        .area-tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .tech-tag,
+        .area-tag {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 0.8em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .area-tag {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .tech-tag:hover,
+        .area-tag:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Skills Table Section */
+        .skills-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e9ecef;
+        }
+
+        .skill-row {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 24px;
+            border-bottom: 1px solid #f1f2f6;
+            transition: all 0.3s ease;
+            min-height: 70px;
+        }
+
+        .skill-row:last-child {
+            border-bottom: none;
+        }
+
+        .skill-row:hover {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            transform: translateX(4px);
+        }
+
+        .skill-category {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 200px;
+            flex-shrink: 0;
+            font-weight: 600;
+            color: #2c3e50;
+            padding-right: 24px;
+        }
+
+        .skill-category i {
+            color: #3498db;
+            font-size: 1.1em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            flex: 1;
+        }
+
+        .skill-tag {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .skill-tag.primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+        }
+
+        .skill-tag.secondary {
+            background: #f8f9fa;
+            color: #2c3e50;
+            border: 1px solid #e9ecef;
+        }
+
+        .skill-tag.language.native {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+        }
+
+        .skill-tag.language.intermediate {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+        }
+
+        .skill-tag.primary:hover {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+        }
+
+        .skill-tag.secondary:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+        }
+
+        .skill-level {
+            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+            color: #666;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            border: 1px solid #dee2e6;
+            font-style: italic;
+        }
+
+        /* Responsive Skills Table */
+        @media (max-width: 768px) {
+            .skill-row {
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px 20px;
+            }
+
+            .skill-category {
+                min-width: auto;
+                padding-right: 0;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #f1f2f6;
+                width: 100%;
+            }
+
+            .skill-items {
+                width: 100%;
+            }
+
+            .skill-tag {
+                font-size: 0.8em;
+                padding: 5px 12px;
+            }
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #3498db;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Navigation Buttons */
+        .download-btn,
+        .home-btn {
+            position: fixed;
+            bottom: 20px;
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-btn {
+            right: 20px;
+        }
+
+        .home-btn {
+            right: 90px;
+            background: #2c3e50;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+
+        .home-btn:hover {
+            background: #34495e;
+            transform: scale(1.1);
+        }
+
+        /* Link Styles */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 4px;
+            padding: 2px 4px;
+        }
+
+        a:hover {
+            color: #2980b9;
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateY(-1px);
+        }
+
+        a:focus {
+            outline: 2px solid #3498db;
+            outline-offset: 2px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .contact-info {
+                gap: 15px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .intro-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .specialties-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-header,
+            .experience-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: stretch;
+            }
+
+            .education-status,
+            .duration-badge {
+                justify-content: space-between;
+            }
+
+            .download-btn {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .home-btn {
+                bottom: 90px;
+                right: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -37,25 +815,29 @@
                 <h2><i class="fas fa-user-circle"></i> Introduction</h2>
                 <div class="introduction-content">
                     <div class="intro-card primary">
-                        <!-- <div class="intro-icon">
+                        <div class="intro-icon">
                             <i class="fas fa-code"></i>
-                        </div> -->
+                        </div>
                         <div class="intro-text">
-                            <h3>Backend Engineering Excellence</h3>
-                            <p>Experienced backend developer specializing in scalable server-side applications and robust API development. Passionate about leveraging Data Science and Machine Learning technologies to create intelligent solutions.</p>
+                            <!-- <h3>Backend Engineering Excellence</h3> -->
+                            <p>Experienced backend developer specializing in scalable server-side applications and
+                                robust API development. Passionate about leveraging Data Science and Machine Learning
+                                technologies to create intelligent solutions.</p>
                         </div>
                     </div>
-                    
+
                     <div class="intro-card secondary">
-                        <!-- <div class="intro-icon">
+                        <div class="intro-icon">
                             <i class="fas fa-rocket"></i>
-                        </div> -->
+                        </div>
                         <div class="intro-text">
-                            <h3>Continuous Innovation</h3>
-                            <p>Committed to staying ahead of industry trends through continuous learning of new frameworks and best practices. Focus on writing clean, efficient code that drives measurable business value.</p>
+                            <!-- <h3>Continuous Innovation</h3> -->
+                            <p>Committed to staying ahead of industry trends through continuous learning of new
+                                frameworks and best practices. Focus on writing clean, efficient code that drives
+                                measurable business value.</p>
                         </div>
                     </div>
-                    
+
                     <!-- <div class="specialties-grid">
                         <div class="specialty-item">
                             <i class="fas fa-server"></i>
@@ -80,7 +862,7 @@
             <!-- Education Section -->
             <div class="section">
                 <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-                
+
                 <div class="education-item current">
                     <div class="education-header">
                         <div class="institution-info">
@@ -99,7 +881,9 @@
                                 <i class="fas fa-dna"></i>
                                 <div class="research-details">
                                     <strong>Phage Classification Project</strong>
-                                    <p>Advanced bioinformatics research focusing on computational methods for bacteriophage identification and classification using machine learning algorithms.</p>
+                                    <p>Advanced bioinformatics research focusing on computational methods for
+                                        bacteriophage identification and classification using machine learning
+                                        algorithms.</p>
                                 </div>
                             </div>
                         </div>
@@ -125,19 +909,23 @@
                     <div class="education-content">
                         <div class="project-highlight">
                             <h4 class="project-name">Capstone Project</h4>
-                            <p><strong>Hotel Recommendation System:</strong> Innovative combination of sentiment analysis and collaborative filtering techniques for enhanced hospitality recommendations</p>
+                            <p><strong>Hotel Recommendation System:</strong> Innovative combination of sentiment
+                                analysis and collaborative filtering techniques for enhanced hospitality recommendations
+                            </p>
                             <div class="tech-stack">
                                 <span class="tech-tag">Sentiment Analysis</span>
                                 <span class="tech-tag">Collaborative Filtering</span>
                                 <span class="tech-tag">Recommendation Systems</span>
                             </div>
                         </div>
-                        
+
                         <div style="margin-top: 20px;">
                             <h4 style="color: #2c3e50; margin-bottom: 10px;">Published Research</h4>
                             <p><strong>Bus-RSN: An Interconnect Topology for Medium-Size Data Centers</strong></p>
-                            <p style="color: #666; font-size: 0.9em; margin: 8px 0;">Research on cable optimization and incremental expansion solutions for non-continuous data center spaces</p>
-                            <a href="https://ictmag.vn/cntt-tt/article/view/922" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;">
+                            <p style="color: #666; font-size: 0.9em; margin: 8px 0;">Research on cable optimization and
+                                incremental expansion solutions for non-continuous data center spaces</p>
+                            <a href="https://ictmag.vn/cntt-tt/article/view/922" target="_blank"
+                                style="display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;">
                                 <i class="fas fa-external-link-alt"></i>
                                 View Publication
                             </a>
@@ -161,14 +949,15 @@
                             <span class="status current">Current</span>
                         </div>
                     </div>
-                    
+
                     <div class="experience-content">
                         <div class="project-highlight">
                             <h4 class="project-name">Project Smart Gate</h4>
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 <div class="achievement-item">
                                     <i class="fas fa-shipping-fast"></i>
-                                    <span>Supporting customs clearance business operations including import and export processes</span>
+                                    <span>Supporting customs clearance business operations including import and export
+                                        processes</span>
                                 </div>
                                 <div class="achievement-item">
                                     <i class="fas fa-handshake"></i>
@@ -176,7 +965,8 @@
                                 </div>
                                 <div class="achievement-item">
                                     <i class="fas fa-cubes"></i>
-                                    <span>Implementing microservice architecture with modules: booking, orchestrator, IMC, smartgate, grant</span>
+                                    <span>Implementing microservice architecture with modules: booking, orchestrator,
+                                        IMC, smartgate, grant</span>
                                 </div>
                             </div>
                         </div>
@@ -194,38 +984,46 @@
                             <span class="status duration-length">1y 10m</span>
                         </div>
                     </div>
-                    
+
                     <div class="experience-content">
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 20px;">
-                            <div style="background: #f8f9fa; border-radius: 12px; padding: 16px; border: 1px solid #e9ecef;">
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 20px;">
+                            <div
+                                style="background: #f8f9fa; border-radius: 12px; padding: 16px; border: 1px solid #e9ecef;">
                                 <h4 style="color: #2c3e50; margin-bottom: 8px;">ReID System</h4>
-                                <p style="color: #666; font-size: 0.9em; margin-bottom: 8px;">Face recognition and identification system supporting GHTK's business operations</p>
+                                <p style="color: #666; font-size: 0.9em; margin-bottom: 8px;">Face recognition and
+                                    identification system supporting GHTK's business operations</p>
                                 <div class="tech-stack">
                                     <span class="tech-tag">Computer Vision</span>
                                     <span class="tech-tag">AI/ML</span>
                                 </div>
                             </div>
-                            
-                            <div style="background: #f8f9fa; border-radius: 12px; padding: 16px; border: 1px solid #e9ecef;">
+
+                            <div
+                                style="background: #f8f9fa; border-radius: 12px; padding: 16px; border: 1px solid #e9ecef;">
                                 <h4 style="color: #2c3e50; margin-bottom: 8px;">Loyalty Platform</h4>
-                                <p style="color: #666; font-size: 0.9em; margin-bottom: 8px;">Comprehensive application for managing vouchers, campaigns, and rewards within GHTK ecosystem</p>
+                                <p style="color: #666; font-size: 0.9em; margin-bottom: 8px;">Comprehensive application
+                                    for managing vouchers, campaigns, and rewards within GHTK ecosystem</p>
                                 <div class="tech-stack">
                                     <span class="tech-tag">Backend API</span>
                                     <span class="tech-tag">Campaign Management</span>
                                 </div>
                             </div>
-                            
-                            <div style="background: #f8f9fa; border-radius: 12px; padding: 16px; border: 1px solid #e9ecef;">
+
+                            <div
+                                style="background: #f8f9fa; border-radius: 12px; padding: 16px; border: 1px solid #e9ecef;">
                                 <h4 style="color: #2c3e50; margin-bottom: 8px;">eKYC Solution</h4>
-                                <p style="color: #666; font-size: 0.9em; margin-bottom: 8px;">Digital transformation of the KYC verification process</p>
+                                <p style="color: #666; font-size: 0.9em; margin-bottom: 8px;">Digital transformation of
+                                    the KYC verification process</p>
                                 <div class="tech-stack">
                                     <span class="tech-tag">Document Processing</span>
                                     <span class="tech-tag">Verification</span>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div style="background: #f1f2f6; border-radius: 12px; padding: 20px; border-left: 4px solid #9b59b6;">
+
+                        <div
+                            style="background: #f1f2f6; border-radius: 12px; padding: 20px; border-left: 4px solid #9b59b6;">
                             <h4 style="color: #2c3e50; margin-bottom: 16px;">Additional Responsibilities</h4>
                             <div class="achievement-item">
                                 <i class="fas fa-sync-alt"></i>
@@ -246,20 +1044,23 @@
                             <span class="status duration-length">1y</span>
                         </div>
                     </div>
-                    
+
                     <div class="experience-content">
                         <div class="project-highlight">
                             <h4 class="project-name">Churn Prediction VIC</h4>
-                            <p style="color: #666; margin-bottom: 16px;">Advanced predictive analytics project focusing on customer retention through big data analysis</p>
-                            
+                            <p style="color: #666; margin-bottom: 16px;">Advanced predictive analytics project focusing
+                                on customer retention through big data analysis</p>
+
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 <div style="display: flex; gap: 12px;">
                                     <strong style="color: #2c3e50; min-width: 80px;">Objective:</strong>
-                                    <span style="color: #666;">Predict and prevent customer churn for Viettel services</span>
+                                    <span style="color: #666;">Predict and prevent customer churn for Viettel
+                                        services</span>
                                 </div>
                                 <div style="display: flex; gap: 12px;">
                                     <strong style="color: #2c3e50; min-width: 80px;">Approach:</strong>
-                                    <span style="color: #666;">Applied machine learning algorithms to analyze user behavior patterns</span>
+                                    <span style="color: #666;">Applied machine learning algorithms to analyze user
+                                        behavior patterns</span>
                                 </div>
                                 <div style="display: flex; gap: 12px; align-items: flex-start;">
                                     <strong style="color: #2c3e50; min-width: 80px;">Tech Stack:</strong>
@@ -292,7 +1093,7 @@
                             <span class="skill-tag secondary">SQL</span>
                         </div>
                     </div>
-                    
+
                     <div class="skill-row">
                         <div class="skill-category">
                             <i class="fas fa-layer-group"></i>
@@ -308,7 +1109,7 @@
                             <span class="skill-tag secondary">Node.js</span> -->
                         </div>
                     </div>
-                    
+
                     <div class="skill-row">
                         <div class="skill-category">
                             <i class="fas fa-database"></i>
@@ -321,7 +1122,7 @@
                             <span class="skill-tag secondary">Redis</span>
                         </div>
                     </div>
-                    
+
                     <div class="skill-row">
                         <div class="skill-category">
                             <i class="fas fa-tools"></i>
@@ -336,7 +1137,7 @@
                             <span class="skill-tag secondary">Kibana</span>
                         </div>
                     </div>
-                    
+
                     <!-- <div class="skill-row">
                         <div class="skill-category">
                             <i class="fas fa-cloud"></i>
@@ -349,7 +1150,7 @@
                             <span class="skill-tag secondary">API Design</span>
                         </div>
                     </div> -->
-                    
+
                     <!-- <div class="skill-row">
                         <div class="skill-category">
                             <i class="fas fa-brain"></i>
@@ -363,7 +1164,7 @@
                             <span class="skill-tag secondary">NumPy</span>
                         </div>
                     </div> -->
-                    
+
                     <div class="skill-row">
                         <div class="skill-category">
                             <i class="fas fa-language"></i>
@@ -384,7 +1185,8 @@
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-title">Hotel Recommendation System</div>
-                        <p>Capstone project combining sentiment analysis and collaborative filtering for enhanced hospitality recommendations.</p>
+                        <p>Capstone project combining sentiment analysis and collaborative filtering for enhanced
+                            hospitality recommendations.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px;">
                             <span class="tech-tag">Sentiment Analysis</span>
                             <span class="tech-tag">Collaborative Filtering</span>
@@ -394,7 +1196,8 @@
 
                     <div class="project-card">
                         <div class="project-title">Phage Classification Research</div>
-                        <p>Advanced bioinformatics research project focusing on computational methods for bacteriophage identification using ML algorithms.</p>
+                        <p>Advanced bioinformatics research project focusing on computational methods for bacteriophage
+                            identification using ML algorithms.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px;">
                             <span class="tech-tag">Bioinformatics</span>
                             <span class="tech-tag">Deep Learning</span>
